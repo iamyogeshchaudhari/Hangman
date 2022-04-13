@@ -1,5 +1,4 @@
 import random
-from select import select
 
 #List of Words
 word_list = ["bull", "sheep", "cow"]
@@ -12,15 +11,27 @@ display_list = []
 for n in selected_word:
     display_list.append("_")
 
-#Guess a word
-guessed_letter = input("Guess a letter: ").lower()
-
-#Check if the letter exists in the word and replace in list
+#Definitions
 n = -1
+user_lives = 6
+game_ended = False
 
-for x in selected_word:
-    n = n+1
-    if guessed_letter == x:
-        display_list[n] = guessed_letter
+#Creating a loop until the user guesses all words, or exhausts all lives.
+while game_ended == False:
+    if "_" not in display_list or user_lives == 0:
+        game_ended == True
 
-print (display_list)
+    guessed_letter = input("Guess a letter: ").lower()
+
+    # Check if the letter exists in the word and replace in list, or cost a life.
+    if guessed_letter not in selected_word:
+        user_lives = user_lives - 1
+
+    for x in selected_word:
+        n = n+1
+        if guessed_letter == x:
+            display_list[n] = guessed_letter
+    
+    n = -1
+    
+    print (display_list)
