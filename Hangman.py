@@ -1,4 +1,7 @@
 import random
+import Hangman_art
+
+print (Hangman_art.logo)
 
 #List of Words
 word_list = ["bull", "sheep", "cow"]
@@ -36,3 +39,8 @@ while game_ended == False:
         game_ended = True
     
     print (display_list)
+
+if "_" not in display_list:
+    print("You won.")
+elif user_lives:
+    print("You lost. The word was" + selected_word)
