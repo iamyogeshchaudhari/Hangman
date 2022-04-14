@@ -19,7 +19,7 @@ game_ended = False
 #Creating a loop until the user guesses all words, or exhausts all lives.
 while game_ended == False:
     if "_" not in display_list or user_lives == 0:
-        game_ended == True
+        game_ended = True
 
     guessed_letter = input("Guess a letter: ").lower()
 
